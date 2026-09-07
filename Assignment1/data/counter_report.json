@@ -1,0 +1,47 @@
+{
+  "test_name": "alpine_virtio_copy_counter",
+  "mode": "counter",
+  "description": "Modified QEMU with static counters only (tracing disabled)",
+  "tracing_enabled": false,
+  "vm_configuration": {
+    "vcpus": 2,
+    "ram": "2G",
+    "disk": "/home/kumar/Downloads/HakunaMatata/data/qcow/counter.qcow2",
+    "iso": "/home/kumar/Downloads/HakunaMatata/alpine-standard-3.24.1-x86_64.iso",
+    "qemu_binary": "/home/kumar/Downloads/HakunaMatata/qemu/build/qemu-system-x86_64"
+  },
+  "workload": {
+    "description": "Sequential copy of 256MB file from RAM (/tmp/benchfile.dat) to VirtIO disk (/mnt/bench/target.dat) followed by sync",
+    "file_size_bytes": 268435456,
+    "file_size_mb": 256
+  },
+  "execution_time": {
+    "guest_real_sec": 0.28,
+    "guest_user_sec": 0.0,
+    "guest_sys_sec": 0.17,
+    "host_elapsed_sec": 0.3599
+  },
+  "virtio_notify_metrics": {
+    "tracing_enabled": false,
+    "total_events_captured": 0,
+    "virtio_queue_notify": {
+      "total_calls": 0,
+      "calls_by_queue_index": {},
+      "counter_range": []
+    },
+    "virtio_queue_notify_vq": {
+      "total_calls": 0,
+      "calls_by_queue_index": {},
+      "counter_range": []
+    }
+  },
+  "overhead_comparison_against_baseline": {
+    "baseline_guest_real_sec": 0.27,
+    "delta_guest_real_sec": 0.01,
+    "guest_real_overhead_percent": 3.7,
+    "baseline_host_elapsed_sec": 0.3462,
+    "delta_host_elapsed_sec": 0.0137,
+    "host_elapsed_overhead_percent": 3.95,
+    "baseline_total_calls": 268
+  }
+}

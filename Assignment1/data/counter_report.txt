@@ -1,0 +1,31 @@
+
+================================================================================
+          VIRTIO BENCHMARK REPORT: COUNTER
+================================================================================
+Target VM: Alpine Linux 3.24 (Kernel 6.18 LTS)
+Hardware Config: 2 vCPUs, 2GB RAM, VirtIO Block Device (/dev/vda)
+Disk Image: /home/kumar/Downloads/HakunaMatata/data/qcow/counter.qcow2
+Tracing: DISABLED
+Workload: 256MB sequential copy (RAM -> VirtIO Disk + sync)
+
+--- EXECUTION TIME MEASUREMENTS ---
+Guest 'real' Time : 0.28 s
+Guest 'user' Time : 0.00 s
+Guest 'sys'  Time : 0.17 s
+Host Elapsed Time : 0.3599 s
+
+--- OVERHEAD COMPARISON VS UNMODIFIED BASELINE ---
+Baseline Guest Real Time : 0.27 s
+Current Guest Real Time  : 0.28 s
+Overhead (Delta Real)    : 0.01 s (3.7%)
+Overhead (Delta Host)    : 0.0137 s (3.95%)
+Baseline Total Calls     : 268
+
+--- VIRTIO QUEUE NOTIFICATION METRICS ---
+Total Events Captured               : 0
+virtio_queue_notify calls           : 0 (Queues: {})
+  Static Counter Range              : []
+virtio_queue_notify_vq calls        : 0 (Queues: {})
+  Static Counter Range              : []
+
+================================================================================
